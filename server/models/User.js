@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"; // this will help us set up our model
 
 const UserSchema = new mongoose.Schema(
   {
@@ -40,6 +40,6 @@ const UserSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+// when you create a mongoose model, you will have to create a mongoose schema first
 const User = mongoose.model("User", UserSchema);
 export default User;

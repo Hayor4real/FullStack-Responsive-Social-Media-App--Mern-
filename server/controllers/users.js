@@ -3,9 +3,9 @@ import User from "../models/User.js";
 /* READ */
 export const getUser = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params; // grab the id from the string
     const user = await User.findById(id);
-    res.status(200).json(user);
+    res.status(200).json(user); //send back to the frontend all relevant to the user
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
@@ -18,12 +18,12 @@ export const getUserFriends = async (req, res) => {
 
     const friends = await Promise.all(
       user.friends.map((id) => User.findById(id))
-    );
+    ); // i will make multiple api calls to the database
     const formattedFriends = friends.map(
       ({ _id, firstName, lastName, occupation, location, picturePath }) => {
         return { _id, firstName, lastName, occupation, location, picturePath };
       }
-    );
+    ); // formatted in a properway for the frontend
     res.status(200).json(formattedFriends);
   } catch (err) {
     res.status(404).json({ message: err.message });
@@ -44,6 +44,7 @@ export const addRemoveFriend = async (req, res) => {
       user.friends.push(friendId);
       friend.friends.push(id);
     }
+    // save the updated friend and user
     await user.save();
     await friend.save();
 

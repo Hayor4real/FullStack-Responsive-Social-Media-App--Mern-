@@ -1,3 +1,5 @@
+// this data provides information about the user
+
 import mongoose from "mongoose";
 
 const userIds = [

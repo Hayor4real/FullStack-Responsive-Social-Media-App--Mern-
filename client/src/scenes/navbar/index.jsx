@@ -27,7 +27,7 @@ import FlexBetween from "components/FlexBetween";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false); //to toggle in small screens
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //to dispatch action from the reducers
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)"); // used in material ui to determine min-width

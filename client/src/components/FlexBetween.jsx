@@ -7,4 +7,6 @@ const FlexBetween = styled(Box)({
   alignItems: "center",
 }); // using css styled properties
 
+//this allows us to reuse this css properties
+
 export default FlexBetween;

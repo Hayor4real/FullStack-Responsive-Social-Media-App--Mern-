@@ -11,7 +11,7 @@ import { themeSettings } from "./theme";
 function App() {
   const mode = useSelector((state) => state.mode); // grab the value created from initial state
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
-  const isAuth = Boolean(useSelector((state) => state.token));
+  const isAuth = Boolean(useSelector((state) => state.token)); // to determine whether logged in or not
 
   return (
     <div className="app">

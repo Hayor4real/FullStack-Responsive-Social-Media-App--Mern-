@@ -8,8 +8,8 @@ import {
   useTheme,
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import { Formik } from "formik";
-import * as yup from "yup";
+import { Formik } from "formik"; //what i used for the form library
+import * as yup from "yup"; //which is the validation library
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "state";
@@ -29,7 +29,7 @@ const registerSchema = yup.object().shape({
 const loginSchema = yup.object().shape({
   email: yup.string().email("invalid email").required("required"),
   password: yup.string().required("required"),
-});
+}); // schema set up the validations
 // this sets up the initial values
 const initialValuesRegister = {
   firstName: "",
@@ -69,9 +69,9 @@ const Form = () => {
         method: "POST",
         body: formData,
       }
-    );
+    ); //sent the form data to the api call
     const savedUser = await savedUserResponse.json();
-    onSubmitProps.resetForm();
+    onSubmitProps.resetForm(); //provides a lot of functions with formik
 
     if (savedUser) {
       setPageType("login");
@@ -191,7 +191,7 @@ const Form = () => {
                         {...getRootProps()}
                         border={`2px dashed ${palette.primary.main}`}
                         p="1rem"
-                        sx={{ "&:hover": { cursor: "pointer" } }}
+                        sx={{ "&:hover": { cursor: "pointer" } }} // i targeted the hover
                       >
                         <input {...getInputProps()} />
                         {!values.picture ? (
@@ -272,4 +272,5 @@ const Form = () => {
   );
 };
 
+// formik is grabbing the form from submit and passing into the formik
 export default Form;

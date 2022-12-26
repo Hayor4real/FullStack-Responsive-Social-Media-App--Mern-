@@ -28,10 +28,10 @@ import { setPosts } from "state";
 const MyPostWidget = ({ picturePath }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
-  const [image, setImage] = useState(null);
-  const [post, setPost] = useState("");
+  const [image, setImage] = useState(null); // actual image if dropped
+  const [post, setPost] = useState(""); // actual post content
   const { palette } = useTheme();
-  const { _id } = useSelector((state) => state.user);
+  const { _id } = useSelector((state) => state.user); // send this to the backend
   const token = useSelector((state) => state.token);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const mediumMain = palette.neutral.mediumMain;

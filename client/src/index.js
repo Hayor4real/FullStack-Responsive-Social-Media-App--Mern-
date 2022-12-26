@@ -14,7 +14,7 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
+} from "redux-persist"; // this only for redux-persist
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
 

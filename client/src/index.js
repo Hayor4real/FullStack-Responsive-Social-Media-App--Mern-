@@ -17,6 +17,9 @@ import {
 } from "redux-persist"; // this only for redux-persist
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+
+if (process.env.NODE_ENV === "production") disableReactDevTools();
 
 // got the code from redux js toolkit in combination with redux persist
 const persistConfig = { key: "root", storage, version: 1 };

@@ -54,6 +54,17 @@ app.use("/auth", authRoutes); //this will help set routes and keep files organis
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
+// serving the frontend
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./client/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
+
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
 mongoose

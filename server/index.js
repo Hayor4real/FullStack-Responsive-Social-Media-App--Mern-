@@ -18,7 +18,6 @@ import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
 import { users, posts } from "./data/index.js";
-const corsOptions = require("./config/corsOptions");
 
 /* CONFIGURATIONS  this will include all the middleware configuration as well as diff packages*/
 const __filename = fileURLToPath(import.meta.url); // so we can grab file url
@@ -31,8 +30,8 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-// app.use(cors());
-app.use(cors(corsOptions));
+app.use(cors());
+// app.use(cors(corsOptions));
 app.use("/assets", express.static(path.join(__dirname, "public/assets"))); //set directory where we keep the assets
 
 /* FILE STORAGE */ // got the information from github repo of multer

@@ -5,7 +5,6 @@ const Footer = () => {
     <>
       <div className="footer">
         Made with 💖 from AKINDELE AYORINDE EMMANUEL. ⌛{" "}
-        {new Date().getFullYear()} ⌛{" "}
       </div>
     </>
   );
